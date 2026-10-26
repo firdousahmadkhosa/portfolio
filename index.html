@@ -255,12 +255,22 @@ section.blk{padding:86px 0;position:relative}
 .rv.in{opacity:1;transform:none}
 
 /* ---------- stats ---------- */
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--stroke);border:1px solid var(--stroke);border-radius:var(--r);overflow:hidden}
-@media(min-width:820px){.stats{grid-template-columns:repeat(4,1fr)}}
-.stat{padding:32px 24px;background:var(--bg);text-align:center;transition:background .3s}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-block:1px solid var(--stroke)}
+.stat{min-width:0;padding:24px 12px;text-align:center;transition:background .3s}
+.stat:nth-child(even){border-left:1px solid var(--stroke)}
+.stat:nth-child(n+3){border-top:1px solid var(--stroke)}
 .stat:hover{background:var(--surface)}
-.stat b{display:block;font-family:var(--sans);font-size:clamp(2rem,4.4vw,2.9rem);font-weight:800;letter-spacing:-.04em}
-.stat span{display:block;margin-top:7px;font-size:13.5px;color:var(--tx-2)}
+.stat b{display:flex;align-items:baseline;justify-content:center;gap:2px;font-family:var(--sans);font-size:36px;line-height:1;font-weight:800;letter-spacing:0}
+.stat b span{display:inline;margin:0}
+.stat b .gt{font-size:.72em}
+.stat>span{display:block;margin-top:9px;font-size:12.5px;line-height:1.4;color:var(--tx-2)}
+@media(min-width:820px){
+  .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stat{padding:28px 16px}
+  .stat:nth-child(n+3){border-top:0}
+  .stat:not(:first-child){border-left:1px solid var(--stroke)}
+  .stat b{font-size:42px}
+}
 
 /* ---------- spotlight cards ---------- */
 .cards{display:grid;gap:20px}
@@ -414,7 +424,7 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
     <a href="#top" class="brand"><span class="brand-mark">FA</span> Firdous Ahmad</a>
     <nav class="nav-links" id="navlinks">
       <a href="#work">Work</a><a href="#services">Services</a><a href="#stack">Stack</a>
-      <a href="#experience">Experience</a><a href="#process">Process</a><a href="#faq">FAQ</a>
+      <a href="#experience">Experience</a><a href="#approach">Approach</a><a href="#process">Process</a><a href="#faq">FAQ</a>
     </nav>
     <div class="nav-act">
       <button class="icon-btn" id="theme" aria-label="Switch colour theme">
@@ -430,7 +440,7 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
 
 <div class="sheet" id="sheet">
   <a href="#work">Work</a><a href="#services">Services</a><a href="#stack">Stack</a>
-  <a href="#experience">Experience</a><a href="#process">Process</a><a href="#faq">FAQ</a>
+  <a href="#experience">Experience</a><a href="#approach">Approach</a><a href="#process">Process</a><a href="#faq">FAQ</a>
   <a href="#contact" class="btn btn-p">Start a project</a>
 </div>
 
@@ -438,28 +448,29 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="pill"><span class="ping"><i></i><i></i></span>Available for senior roles &amp; contract work</div>
+      <div class="pill"><span class="ping"><i></i><i></i></span>Available to join immediately</div>
 
       <h1 class="hero-h">
-        Software that
+        Software built to
         <span class="roll">
           <ul>
-          <li>scales.</li>
-          <li>ships.</li>
-          <li>holds up.</li>
-          <li>lasts.</li>
-          <li>scales.</li>
-        </ul>
-      </span>
+            <li>scale.</li>
+            <li>perform.</li>
+            <li>ship.</li>
+            <li>last.</li>
+            <li>scale.</li>
+          </ul>
+        </span>
         <br>
-        Built for governments and banks.
+        Enterprise platforms. Applied AI.
       </h1>
 
       <p class="hero-p">
-        Senior full-stack and AI engineer, five years shipping production systems across the Gulf.
-        I've delivered multi-tenant analytics for the <b>Department of Government Enablement, Abu Dhabi</b>,
-        voice and survey infrastructure for <b>Sohar International Bank</b>, and media monitoring that reads
-        <b>135+ languages</b>. Architecture, Elasticsearch at scale, AWS, and applied AI.
+        Senior Full-Stack &amp; AI Engineer and Software Solution Architect with <b>5+ years of experience</b>
+        designing and scaling secure, production-ready enterprise applications with MERN/PERN stacks.
+        I build AI solutions using <b>RAG, LLMs, NLP and OpenAI</b>, backed by AWS, Docker, CI/CD and Elasticsearch.
+        Experienced in system architecture, performance optimization, cloud and DevOps engineering, and leading teams
+        to deliver reliable software.
       </p>
 
       <div class="hero-btns">
@@ -480,18 +491,20 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
       <div class="pcard" id="pcard">
         <div class="avatar"><img src="logo.jpeg" alt="Firdous Ahmad"></div>
         <h3>Firdous Ahmad</h3>
-        <p class="sub">Senior Full-Stack &amp; AI Engineer</p>
+        <p class="sub">Senior Full-Stack &amp; AI Engineer | Solution Architect</p>
         <div class="pfacts">
           <div class="pfact"><span>Experience</span><span>5+ years</span></div>
-          <div class="pfact"><span>Focus</span><span>Multi-tenant SaaS</span></div>
-          <div class="pfact"><span>Largest team led</span><span>8 engineers</span></div>
+          <div class="pfact"><span>Core expertise</span><span>MERN / PERN</span></div>
+          <div class="pfact"><span>AI focus</span><span>LLMs &amp; RAG</span></div>
+          <div class="pfact"><span>Team leadership</span><span>8 engineers</span></div>
+          <div class="pfact"><span>Cloud &amp; DevOps</span><span>AWS · Azure · CI/CD</span></div>
           <div class="pfact"><span>Timezone</span><span>GMT+5 (PKT)</span></div>
-          <div class="pfact"><span>Status</span><span style="color:#3DD68C">Available now</span></div>
+          <div class="pfact"><span>Availability</span><span style="color:#3DD68C">Immediate</span></div>
         </div>
         <div class="psocial">
           <a href="https://github.com/firdousahmadkhosa" data-fix="github"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7C6.7 19.9 6.1 18 6.1 18c-.5-1.2-1.2-1.5-1.2-1.5-.9-.7.1-.7.1-.7 1 .1 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>GitHub</a>
           <a href="https://www.linkedin.com/in/firdous-ahmad-979057130/" data-fix="linkedin"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.75-2.05C20.4 8.65 21 11 21 14.2V21h-4v-6c0-1.4-.03-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9z"/></svg>LinkedIn</a>
-          <a href="mailto:firdous.ahmad.dev@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>Email</a>
+          <a href="mailto:firdouskhosa@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>Email</a>
           <a href="https://wa.me/923416409993" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5 0-.9.2-3-.9s-3.4-3.6-3.5-3.8c-.1-.2-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.1-.2.3-.1.5.1.2.5.9 1.1 1.4.8.7 1.4.9 1.6 1 .2.1.3.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3z"/></svg>WhatsApp</a>
         </div>
       </div>
@@ -515,10 +528,10 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
 
 <!-- STATS -->
 <div class="wrap"><div class="stats rv" id="stats">
-  <div class="stat"><b><span class="num" data-to="5">0</span><span class="gt">+</span></b><span>Years in production</span></div>
-  <div class="stat"><b><span class="num" data-to="20">0</span><span class="gt">+</span></b><span>Systems shipped</span></div>
-  <div class="stat"><b><span class="num" data-to="135">0</span><span class="gt">+</span></b><span>Languages monitored</span></div>
+  <div class="stat"><b><span class="num" data-to="5">0</span><span class="gt">+</span></b><span>Years of experience</span></div>
   <div class="stat"><b><span class="num" data-to="8">0</span></b><span>Engineers led</span></div>
+  <div class="stat"><b><span class="num" data-to="20">0</span><span class="gt">+</span></b><span>Enterprise analytics products</span></div>
+  <div class="stat"><b><span class="num" data-to="135">0</span><span class="gt">+</span></b><span>Languages monitored</span></div>
 </div></div>
 
 <!-- WORK -->
@@ -742,14 +755,14 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
       <div class="spot">
         <div class="spot-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
         <h3>Backend &amp; APIs</h3>
-        <p>REST and GraphQL services, authentication, database schema design, third-party integrations and the business logic that holds it all together.</p>
-        <div class="tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">GraphQL</span></div>
+        <p>Monolithic and microservices architectures, REST and GraphQL APIs, authentication, database design and integrations. I also build Python services and APIs.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Python</span><span class="tag">FastAPI</span></div>
       </div>
       <div class="spot">
         <div class="spot-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.7-1.3A4 4 0 0 0 6.5 19z"/></svg></div>
         <h3>Cloud &amp; delivery</h3>
-        <p>AWS infrastructure, Docker, CI/CD pipelines and Nginx. Getting teams off manual releases and onto automation that ships the same day.</p>
-        <div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+        <p>Branch-driven CI/CD from development through UAT to production, with automated checks and controlled promotion. Deploy serverless or server-based workloads to AWS, GCP, Namecheap or DigitalOcean.</p>
+        <div class="tags"><span class="tag">AWS Lambda</span><span class="tag">GCP Cloud Functions</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
       </div>
       <div class="spot">
         <div class="spot-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
@@ -794,18 +807,18 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
         <span class="skill">Kendo UI</span><span class="skill">Bootstrap</span><span class="skill">React Native</span>
       </div>
       <div class="panel" data-panel="back">
-        <span class="skill">Node.js</span><span class="skill">Express</span><span class="skill">NestJS</span>
+        <span class="skill">Node.js</span><span class="skill">Python</span><span class="skill">FastAPI</span><span class="skill">Express</span><span class="skill">NestJS</span>
         <span class="skill">GraphQL</span><span class="skill">Apollo Server</span><span class="skill">WebSockets</span>
         <span class="skill">JWT</span><span class="skill">OAuth 2.0</span><span class="skill">Prisma</span>
         <span class="skill">Sequelize</span><span class="skill">Mongoose</span><span class="skill">MySQL</span>
         <span class="skill">MongoDB</span><span class="skill">Redis</span><span class="skill">DynamoDB</span>
       </div>
       <div class="panel" data-panel="infra">
-        <span class="skill">EC2</span><span class="skill">Lambda</span><span class="skill">API Gateway</span>
-        <span class="skill">S3</span><span class="skill">CloudFront</span><span class="skill">Route 53</span>
+        <span class="skill">AWS</span><span class="skill">EC2</span><span class="skill">AWS Lambda</span><span class="skill">API Gateway</span>
+        <span class="skill">GCP</span><span class="skill">Cloud Functions</span><span class="skill">S3</span><span class="skill">CloudFront</span><span class="skill">Route 53</span>
         <span class="skill">SES</span><span class="skill">Elastic Beanstalk</span><span class="skill">Docker</span>
         <span class="skill">GitHub Actions</span><span class="skill">GitLab CI</span><span class="skill">Nginx</span>
-        <span class="skill">PM2</span><span class="skill">Linux</span><span class="skill">GCP</span><span class="skill">Azure</span>
+        <span class="skill">PM2</span><span class="skill">Linux</span><span class="skill">Azure</span><span class="skill">Namecheap</span><span class="skill">DigitalOcean</span>
       </div>
       <div class="panel" data-panel="ai">
         <span class="skill">OpenAI API</span><span class="skill">LLM integration</span><span class="skill">Prompt engineering</span>
@@ -821,7 +834,7 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
   <div class="wrap">
     <div class="head rv">
       <div class="eyebrow">Track record</div>
-      <h2 class="h2">Five years, six teams, four countries</h2>
+      <h2 class="h2">5+ years building and leading production software</h2>
     </div>
     <div class="tl rv">
       <div class="tl-item">
@@ -850,20 +863,30 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
       </div>
       <div class="tl-item">
         <div class="tl-when">2021 — 2023</div>
-        <h3>AWS Solution Architect &amp; Full-Stack Developer</h3>
+        <h3>AWS Solution Architect</h3>
         <div class="tl-org">Aamanto Technologies Inc.</div>
         <p>Staffing, CRM and recruitment SaaS — applicant tracking, payroll, scheduling and lead management. Managed EC2, Route 53, SES, CloudFront, Docker and Nginx.</p>
       </div>
       <div class="tl-item">
-        <div class="tl-when">2021</div>
-        <h3>Backend Developer</h3>
+        <div class="tl-when">2020 — 2021</div>
+        <h3>Node.js Backend Developer</h3>
         <div class="tl-org">Techreneur Solutions</div>
         <p>REST APIs for FinTech and logistics products. Schema design, SMS gateways, payment services and notification systems.</p>
       </div>
       <div class="tl-item">
-        <div class="tl-when">2016 — 2021</div>
-        <h3>MS &amp; BS, Computer Science</h3>
-        <div class="tl-org">NFC Institute of Engineering &amp; Technology · COMSATS University Islamabad</div>
+        <div class="tl-when">2021 — 2023</div>
+        <h3>Master of Science, Computer Science</h3>
+        <div class="tl-org">NFC Institute of Engineering &amp; Technology</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">2016 — 2020</div>
+        <h3>Bachelor of Science, Computer Science</h3>
+        <div class="tl-org">COMSATS University Islamabad, Abbottabad Campus</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">2012 — 2015</div>
+        <h3>Diploma of Associate Engineering, Computer Information Technology</h3>
+        <div class="tl-org">Government College of Technology, Multan</div>
       </div>
     </div>
   </div>
@@ -891,6 +914,49 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
         <div class="row-n">03</div>
         <h3>Architecture consulting</h3>
         <p>Short engagements on a specific problem: a system that has outgrown its design, Elasticsearch that has stopped scaling, or a release process that needs automating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION ARCHITECTURE -->
+<section class="blk" id="approach">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Solution architecture</div>
+      <h2 class="h2">From requirements to a reliable release</h2>
+      <p class="sub-h">A collaborative, end-to-end approach: clarify the problem, design the experience and system, then build, deploy and adapt as priorities change.</p>
+    </div>
+    <div class="rows rv">
+      <div class="row">
+        <div class="row-n">01</div>
+        <h3>Discover &amp; define</h3>
+        <p>Work with stakeholders to understand users, business goals, functional requirements, constraints and success measures. Confirm scope, assumptions, risks and priorities before implementation.</p>
+      </div>
+      <div class="row">
+        <div class="row-n">02</div>
+        <h3>Map the experience</h3>
+        <p>Turn user needs into journeys and low-fidelity wireframes for key screens and workflows. Review them early with stakeholders, gather feedback and refine the experience before detailed development.</p>
+      </div>
+      <div class="row">
+        <div class="row-n">03</div>
+        <h3>Design the system</h3>
+        <p>Define frontend and backend boundaries, APIs, data flows, security and deployment architecture. Document key interactions with sequence diagrams, domain structure with class diagrams, and data relationships with an ERD.</p>
+      </div>
+      <div class="row">
+        <div class="row-n">04</div>
+        <h3>Build &amp; promote through environments</h3>
+        <p>Implement and test the frontend, backend and data layer in increments. CI/CD runs from Git branches: feature work is integrated into Development, a reviewed release candidate is promoted to UAT for tester validation, then approved changes are released to Production for customers. Automated tests, deployment checks and environment-specific configuration gate each promotion.</p>
+      </div>
+      <div class="row">
+        <div class="row-n">05</div>
+        <h3>Choose the right runtime</h3>
+        <p>Design around the product's scale, operational needs and budget: a well-structured monolith or independently deployable microservices. Deploy serverless functions such as AWS Lambda or GCP Cloud Functions, or run services on managed or virtual servers.</p>
+      </div>
+      <div class="row">
+        <div class="row-n">06</div>
+        <h3>Prioritize change</h3>
+        <p>When requirements change, assess user impact, urgency, effort and dependencies with stakeholders. Reorder the backlog and agree what moves: use sprint planning and reviews in Agile, or continuously reprioritize and limit work in progress with Kanban.</p>
       </div>
     </div>
   </div>
@@ -955,9 +1021,9 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
           <h2 class="h2" style="font-size:clamp(1.7rem,3.4vw,2.4rem)">Tell me what you're building</h2>
           <p class="sub-h" style="font-size:15.5px">Whether it's a new platform, a system that's outgrown its architecture, or a codebase that needs someone senior — send the details and I'll reply within a day.</p>
           <div style="margin-top:28px">
-            <a class="cline" href="mailto:firdous.ahmad.dev@gmail.com">
+            <a class="cline" href="mailto:firdouskhosa@gmail.com">
               <span class="cline-i"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
-              <span><span class="cline-k">Email</span><br><span class="cline-v">firdous.ahmad.dev@gmail.com</span></span>
+              <span><span class="cline-k">Email</span><br><span class="cline-v">firdouskhosa@gmail.com</span></span>
             </a>
             <a class="cline" href="tel:+923416409993">
               <span class="cline-i"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
@@ -976,7 +1042,7 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
           </div>
         </div>
 
-        <form class="form" id="form" action="https://formsubmit.co/ajax/firdous.ahmad.dev@gmail.com" method="POST">
+        <form class="form" id="form" action="https://formsubmit.co/ajax/firdouskhosa@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New portfolio enquiry">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -1129,7 +1195,7 @@ footer{border-top:1px solid var(--stroke);padding:36px 0;margin-top:20px}
         button.firstChild.textContent='Send message';
       })
       .catch(function(){
-        formNote.textContent='Could not send right now. Please email firdous.ahmad.dev@gmail.com directly.';
+        formNote.textContent='Could not send right now. Please email firdouskhosa@gmail.com directly.';
         button.disabled=false;
         button.firstChild.textContent='Send message';
       });
